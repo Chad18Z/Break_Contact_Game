@@ -5,25 +5,37 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour {
 
     Rigidbody2D rb; // rigidbody for collision
-    float moveUnits = 5;
-    float speed = 10.0f; // speed of rotation
-    Vector3 lastMousePosition;
+    float moveUnits = .1f; // move speed for the player character
+    static Vector2 direction;
    
+
+
+    [SerializeField]
+    Bullet bullet;
 
 	// Use this for initialization
 	void Start () {
-        rb = GetComponent < Rigidbody2D>();
-        transform.up = Input.mousePosition;
+
+        rb = GetComponent <Rigidbody2D>();
+    }
+    /// <summary>
+    /// This property returns the direction (aim) vector of the player's weapon
+    /// </summary>
+    public static Vector2 GetWeaponDirection
+    {
+        get { return direction; }
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
  
     }
 
     // Gets user input and moves the player character
     void FixedUpdate()
     {
+        if (Input.GetMouseButtonDown(0)) { FireWeapon(); }
         bool move = false;
         Vector2 newPosition = Vector2.zero;
 
@@ -31,41 +43,55 @@ public class PlayerScript : MonoBehaviour {
         if (Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse Y") != 0)
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 direction = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
+            direction = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
             transform.up = direction;
         }
 
         // move player character to the right
         if (Input.GetAxisRaw("Horizontal") > 0)
         {
-            newPosition = new Vector2(transform.position.x + .1f, transform.position.y);
+            newPosition = new Vector2(transform.position.x + moveUnits, transform.position.y);
             move = true;
         }
         // move player character to the right
         if (Input.GetAxisRaw("Horizontal") < 0)
         {
-            newPosition = new Vector2(transform.position.x - .1f, transform.position.y);
+            newPosition = new Vector2(transform.position.x - moveUnits, transform.position.y);
             move = true;
         }
 
         // move player character to the right
         if (Input.GetAxisRaw("Vertical") > 0)
         {
-            newPosition = new Vector2(transform.position.x , transform.position.y + .1f);
+            newPosition = new Vector2(transform.position.x , transform.position.y + moveUnits);
             move = true;
         }
         // move player character to the right
         if (Input.GetAxisRaw("Vertical") < 0)
         {
-            newPosition = new Vector2(transform.position.x, transform.position.y - .1f);
+            newPosition = new Vector2(transform.position.x, transform.position.y - moveUnits);
             move = true;
         }
-        if (move)
+        if (move) // if player has provided input, then move the character
         {
             rb.MovePosition(newPosition);
             move = false;
         }
-
-
+    }
+    /// <summary>
+    /// fires a bullet
+    /// </summary>
+    void FireWeapon()
+    {
+        // Create new bullet which originates from the character's weapon muzzle
+        Instantiate(bullet, CalculateBulletOrigin(), Quaternion.identity);           
+    }
+    /// <summary>
+    /// calculates the origin of the bullet (location on the sprite from where the bullet will be fired)
+    /// </summary>
+    /// <returns></returns>
+    Vector3 CalculateBulletOrigin()
+    {
+        return new Vector3(transform.position.x + .1f, transform.position.y, 0);
     }
 }

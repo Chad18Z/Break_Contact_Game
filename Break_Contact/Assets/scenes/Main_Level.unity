@@ -154,7 +154,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.63889486, g: 0.72499454, b: 0.8602941, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -231,31 +231,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4982596674121076, guid: 256c4e45d872bdc4fb12c389be8768b1, type: 2}
       propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4982596674121076, guid: 256c4e45d872bdc4fb12c389be8768b1, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 212447261268774018, guid: 256c4e45d872bdc4fb12c389be8768b1,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: d974ecb8cf5ddd1458d80f11324f0bc9,
-        type: 3}
-    - target: {fileID: 212447261268774018, guid: 256c4e45d872bdc4fb12c389be8768b1,
-        type: 2}
-      propertyPath: m_Size.x
-      value: 2.07
-      objectReference: {fileID: 0}
-    - target: {fileID: 212447261268774018, guid: 256c4e45d872bdc4fb12c389be8768b1,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 3.13
-      objectReference: {fileID: 0}
-    - target: {fileID: 212447261268774018, guid: 256c4e45d872bdc4fb12c389be8768b1,
-        type: 2}
-      propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
