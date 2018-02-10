@@ -23,7 +23,7 @@ public class PlayerScript : MonoBehaviour {
     /// </summary>
     public static Vector2 GetWeaponDirection
     {
-        get { return direction; }
+        get { return direction.normalized; }
     }
 	
 	// Update is called once per frame
@@ -92,6 +92,8 @@ public class PlayerScript : MonoBehaviour {
     /// <returns></returns>
     Vector3 CalculateBulletOrigin()
     {
-        return new Vector3(transform.position.x + .1f, transform.position.y, 0);
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Deg2Rad;
+
+        return (new Vector3(transform.position.x+.1f, transform.position.y+.1f, 0));
     }
 }
