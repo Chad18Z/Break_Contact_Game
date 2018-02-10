@@ -13,7 +13,7 @@ public class PlayerScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         rb = GetComponent < Rigidbody2D>();
-
+        transform.up = Input.mousePosition;
     }
 	
 	// Update is called once per frame
