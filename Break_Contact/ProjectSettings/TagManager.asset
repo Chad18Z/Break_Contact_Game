@@ -7,6 +7,9 @@ TagManager:
   - bulletTag
   - bulletSpawn
   - block
+  - waypoint
+  - player
+  - badguy
   layers:
   - Default
   - TransparentFX

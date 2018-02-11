@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BadGuyScript : MonoBehaviour {
 
+    bool isMoving = false;
 	// Use this for initialization
 	void Start () {
 		
