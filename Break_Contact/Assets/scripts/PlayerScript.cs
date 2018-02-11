@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour {
 
     Rigidbody2D rb; // rigidbody for collision
-    float moveUnits = .1f; // move speed for the player character
+    float moveUnits = .07f; // move speed for the player character
     static Vector2 direction;
    
 
@@ -15,7 +15,7 @@ public class PlayerScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+        
         rb = GetComponent <Rigidbody2D>();
     }
     /// <summary>
@@ -26,11 +26,6 @@ public class PlayerScript : MonoBehaviour {
         get { return direction.normalized; }
     }
 	
-	// Update is called once per frame
-	void Update ()
-    {
- 
-    }
 
     // Gets user input and moves the player character
     void FixedUpdate()
@@ -53,20 +48,20 @@ public class PlayerScript : MonoBehaviour {
             newPosition = new Vector2(transform.position.x + moveUnits, transform.position.y);
             move = true;
         }
-        // move player character to the right
+        // move player character to the left
         if (Input.GetAxisRaw("Horizontal") < 0)
         {
             newPosition = new Vector2(transform.position.x - moveUnits, transform.position.y);
             move = true;
         }
 
-        // move player character to the right
+        // move player character down
         if (Input.GetAxisRaw("Vertical") > 0)
         {
             newPosition = new Vector2(transform.position.x , transform.position.y + moveUnits);
             move = true;
         }
-        // move player character to the right
+        // move player character up
         if (Input.GetAxisRaw("Vertical") < 0)
         {
             newPosition = new Vector2(transform.position.x, transform.position.y - moveUnits);

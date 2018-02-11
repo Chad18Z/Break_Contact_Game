@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// this ensures that the particle system is destroyed after finished playing
+/// </summary>
 public class ParticleSystemController : MonoBehaviour {
 
     ParticleSystem part;
