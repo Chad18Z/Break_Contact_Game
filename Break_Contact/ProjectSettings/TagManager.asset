@@ -6,6 +6,7 @@ TagManager:
   tags:
   - bulletTag
   - bulletSpawn
+  - block
   layers:
   - Default
   - TransparentFX

@@ -93,10 +93,6 @@ public class PlayerScript : MonoBehaviour {
     Vector3 CalculateBulletOrigin()
     {
         GameObject spawn = GameObject.FindGameObjectWithTag("bulletSpawn");
-        //float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Deg2Rad;
-        //Vector3 playerPostion = transform.position;
-        //Vector3 pivot = new Vector3(0.5821781f, 0.3022344f,0);
-        //Vector3 center = playerPostion - pivot;
         return spawn.transform.position;
     }
 }
