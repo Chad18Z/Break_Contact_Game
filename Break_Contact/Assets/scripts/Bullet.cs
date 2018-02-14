@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour {
 
     Rigidbody2D rb;
-    float bulletSpeed = 8.0f;
+    float bulletSpeed = 11.0f;
 
     [SerializeField]
     GameObject part; // particle system for impact with wall

@@ -57,7 +57,9 @@ public class EnemyAIController : MonoBehaviour {
     /// </summary>
     void Spawn()
     {
-        GameObject guy = Instantiate(badGuyPrefab, spawnPoint[DetermineBestSpawnPoint()].transform.position, Quaternion.identity);
+        Instantiate(badGuyPrefab, new Vector3(1,1,0), Quaternion.identity);
+        Vector3 spawnPosition = spawnPoint[DetermineBestSpawnPoint()].transform.position;
+        Instantiate(badGuyPrefab, spawnPosition , Quaternion.identity);
     }
     int DetermineBestSpawnPoint()  // based on player's location
     {
