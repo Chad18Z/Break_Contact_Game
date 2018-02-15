@@ -12,11 +12,15 @@ public class EnemyAIController : MonoBehaviour {
     bool readyToSpawn = true;
     GameObject[] waypoints = new GameObject[20];
     GameObject[] spawnPoint = new GameObject[4]; // this array will hold the spawn points. Spawn points are the waypoints outside each of the exits from the level
+
+
 	// Use this for initialization
 	void Start () {
-        waypoints = GetWaypoints();
+
+        waypoints = GameObject.FindGameObjectsWithTag("waypoint");
         InitializeSpawnpoints();
-	}
+        
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -27,20 +31,11 @@ public class EnemyAIController : MonoBehaviour {
             readyToSpawn = false;
         }
 	}
-
-    public GameObject[] ShareWaypoints
-    {
-        get { return waypoints; }
-    }
     /// <summary>
     /// returns an array of all waypoints in the level
     /// </summary>
     /// <returns></returns>
-    GameObject[] GetWaypoints()
-    {
-        GameObject[] waypoints = GameObject.FindGameObjectsWithTag("waypoint");
-        return waypoints;
-    }
+
     /// <summary>
     /// this method will load the waypoints at exits into an array
     /// </summary>
@@ -57,9 +52,7 @@ public class EnemyAIController : MonoBehaviour {
     /// </summary>
     void Spawn()
     {
-        Instantiate(badGuyPrefab, new Vector3(1,1,0), Quaternion.identity);
-        Vector3 spawnPosition = spawnPoint[DetermineBestSpawnPoint()].transform.position;
-        Instantiate(badGuyPrefab, spawnPosition , Quaternion.identity);
+        Instantiate(badGuyPrefab, (Vector2)spawnPoint[DetermineBestSpawnPoint()].transform.position, Quaternion.identity);
     }
     int DetermineBestSpawnPoint()  // based on player's location
     {
