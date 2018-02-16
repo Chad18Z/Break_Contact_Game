@@ -67,7 +67,7 @@ public class EnemyAIController : MonoBehaviour {
                 farthest = i;
             }
         }
-        return farthest;
+        return 0; // change this back to farthest!
     }
 
 }
