@@ -7,8 +7,12 @@ public class PlayerScript : MonoBehaviour {
     Rigidbody2D rb; // rigidbody for collision
     float moveUnits = .07f; // move speed for the player character
     static Vector2 direction;
-   
+    float bulletSpeed = 11.0f;
 
+    Rigidbody2D brb;
+
+    [SerializeField]
+    ParticleSystem part;
 
     [SerializeField]
     Bullet bullet;
@@ -30,7 +34,7 @@ public class PlayerScript : MonoBehaviour {
     // Gets user input and moves the player character
     void FixedUpdate()
     {
-        if (Input.GetMouseButtonDown(0)) { FireWeapon(); }
+        if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonUp(0)){ FireWeapon(); }
         bool move = false;
         Vector2 newPosition = Vector2.zero;
 
@@ -79,7 +83,10 @@ public class PlayerScript : MonoBehaviour {
     void FireWeapon()
     {
         // Create new bullet which originates from the character's weapon muzzle
-        Instantiate(bullet, CalculateBulletOrigin(), Quaternion.identity);           
+        Bullet firedBullet = Instantiate(bullet, CalculateBulletOrigin(), Quaternion.identity);
+        brb = firedBullet.GetComponent<Rigidbody2D>();
+        Vector2 forceToAdd = PlayerScript.GetWeaponDirection.normalized;
+        brb.AddForce(forceToAdd * bulletSpeed, ForceMode2D.Impulse);
     }
     /// <summary>
     /// calculates the origin of the bullet (location on the sprite from where the bullet will be fired)
@@ -89,5 +96,15 @@ public class PlayerScript : MonoBehaviour {
     {
         GameObject spawn = GameObject.FindGameObjectWithTag("bulletSpawn");
         return spawn.transform.position;
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        if (collision.gameObject.tag == "badguyBullet" || collision.gameObject.tag == "badguy")
+        {
+            Instantiate(part, transform.position, Quaternion.identity);
+            Destroy(collision.gameObject);
+        }
+
     }
 }

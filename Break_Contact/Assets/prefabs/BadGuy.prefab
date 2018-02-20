@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114437899664195534}
   - component: {fileID: 50863501045259622}
   - component: {fileID: 61158934035800638}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BadGuy
   m_TagString: badguy
   m_Icon: {fileID: 0}
@@ -36,9 +36,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1689446570564276}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -8.28, y: 1.75, z: -13.031487}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -100,6 +100,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   part: {fileID: 198125856115523150, guid: 4a1f588eaaeb3834d8c3332c94884e83, type: 2}
+  waypoints:
+  - {fileID: 1979024476489966, guid: fdc64bea7054853418674eb86d021006, type: 2}
+  - {fileID: 1121054481156432, guid: 15359d34d2e2bce459eb27c42940834d, type: 2}
+  - {fileID: 1731846159200028, guid: f952b927cafe5104ca0a94f37af29321, type: 2}
+  - {fileID: 1362514971748288, guid: 65953779122525e41b88f62a0bcae3cd, type: 2}
+  - {fileID: 1816478086802568, guid: 4377b512b9298ba44ba43fc02cabe138, type: 2}
+  - {fileID: 1441135758100546, guid: 911e5f2443aea1047a4760ea0b766049, type: 2}
+  - {fileID: 1143039851922530, guid: a5681d316f379184f8560d581160582b, type: 2}
+  - {fileID: 1150387875258496, guid: 3330513427df2624fbf335353ca496cd, type: 2}
+  - {fileID: 1503152601384234, guid: 0ba0da243440b7e4781a4102602594ef, type: 2}
+  - {fileID: 1613647854678092, guid: acb7a1fbbc263d34e82b68a14f5dfd98, type: 2}
+  - {fileID: 1524311456850708, guid: eb67fe2a8a2057442ab1367d9c2713b3, type: 2}
+  - {fileID: 1217857623211580, guid: 83fca55cee9396a47960bb53a0a81b77, type: 2}
+  - {fileID: 1885216448196002, guid: 7fdf50232ae54db4691f17d39b7e85b7, type: 2}
+  - {fileID: 1093489032471118, guid: 8fb8f7bcd4afc784ab05c3854031a5bc, type: 2}
+  - {fileID: 1546836293962586, guid: 7670c6adc09dd6641a80406853722684, type: 2}
+  - {fileID: 1173111890910020, guid: eacb44e26b419c04e8e3cac6d8f3e3f1, type: 2}
+  - {fileID: 1115287638035038, guid: 23f6ceb0263e9d74a9f9b28c2b2e37be, type: 2}
+  - {fileID: 1511764178219950, guid: c2316b0ba0deb444abf042f1fcf9392d, type: 2}
+  - {fileID: 1494096769341942, guid: 9e632725f700b1c418d8e9ee8f6836a3, type: 2}
+  - {fileID: 1777274380079146, guid: 9bc680a2beb273842a9c304312b4d84f, type: 2}
+  bullet: {fileID: 114697146656576480, guid: 9d97865100b91ab4b912b4431fbc23b9, type: 2}
 --- !u!212 &212372945939000998
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -4,8 +4,7 @@ using UnityEngine;
 /// <summary>
 /// This script will control when and where new enemies will spawn
 /// </summary>
-public class EnemyAIController : MonoBehaviour
-{
+public class EnemyAIController : MonoBehaviour {
 
     [SerializeField]
     GameObject badGuyPrefab;
@@ -16,8 +15,7 @@ public class EnemyAIController : MonoBehaviour
     Timer timer;
 
     // Use this for initialization
-    void Start()
-    {
+    void Start () {
 
         InitializeSpawnpoints();
 
@@ -26,17 +24,19 @@ public class EnemyAIController : MonoBehaviour
         timer.Run();
 
     }
-    // Update is called once per frame
-    void Update()
-    {
+  
 
-        if (timer.Finished)
+	
+	// Update is called once per frame
+	void Update () {
+
+		if (timer.Finished)
         {
             Spawn();
             timer.Duration = spawnTimer;
             timer.Run();
         }
-    }
+	}
     /// <summary>
     /// returns an array of all waypoints in the level
     /// </summary>
@@ -73,11 +73,11 @@ public class EnemyAIController : MonoBehaviour
                 badGuy.GetComponent<BadGuyScript>().SetPathToFollow = new int[] { 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 };
                 break;
             case 3:
-                badGuy.GetComponent<BadGuyScript>().SetPathToFollow = new int[] { 18, 12, 11, 10, 9, 4, 5, 6, 7, 14, 19, 0 };
+                badGuy.GetComponent<BadGuyScript>().SetPathToFollow = new int[] { 18, 12, 11, 10, 9, 4, 5, 6, 7, 14, 19, 0};
                 break;
         }
-
-
+        
+        
     }
     int DetermineBestSpawnPoint()  // based on player's location
     {
@@ -100,7 +100,7 @@ public class EnemyAIController : MonoBehaviour
                     closestToPlayer = i;
                 }
             }
-        }
+        }      
         return closestToPlayer;
     }
 

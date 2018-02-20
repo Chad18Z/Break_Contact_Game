@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BadGuyScript : MonoBehaviour
-{
+public class BadGuyScript : MonoBehaviour {
 
 
     [SerializeField]
@@ -27,8 +26,7 @@ public class BadGuyScript : MonoBehaviour
     int waypoint = 0;
     float spawnTimer = 5.0f;
 
-    void Start()
-    {
+    void Start () {
 
         speed = Random.Range(1.5f, 3.0f);
         timer = gameObject.AddComponent<Timer>();
@@ -36,15 +34,14 @@ public class BadGuyScript : MonoBehaviour
         timer.Run();
     }
     public int[] SetPathToFollow
-    {
-        set { pathToFollow = value; }
+    {       
+        set {pathToFollow = value; }
     }
     // Update is called once per frame
-    void Update()
-    {
+    void Update () {
 
         if (pathToFollow.Length > 0)
-        {
+        { 
 
             float distance = Vector2.Distance(gameObject.transform.position, waypoints[pathToFollow[waypoint]].transform.position);
             transform.position = Vector2.MoveTowards(gameObject.transform.position, waypoints[pathToFollow[waypoint]].transform.position, Time.deltaTime * speed);

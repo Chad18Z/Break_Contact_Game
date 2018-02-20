@@ -5,17 +5,17 @@ using UnityEngine;
 public class Bullet : MonoBehaviour {
 
     Rigidbody2D rb;
-    float bulletSpeed = 11.0f;
+
 
     [SerializeField]
     GameObject part; // particle system for impact with wall
 
+    [SerializeField]
+    GameObject bullPart;
+
     // Use this for initialization
     void Start () {
 
-        rb = GetComponent<Rigidbody2D>();
-        Vector2 forceToAdd = PlayerScript.GetWeaponDirection.normalized;
-        rb.AddForce(forceToAdd * bulletSpeed, ForceMode2D.Impulse);
 
     }
 	void OnBecameInvisible()
@@ -33,5 +33,11 @@ public class Bullet : MonoBehaviour {
             Instantiate(part, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
+        else if (collision.gameObject.tag == "bulletTag" || collision.gameObject.tag == "badguyBullet")
+        {
+            Instantiate(bullPart, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
+
     }
 }

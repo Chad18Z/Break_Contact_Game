@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   part: {fileID: 1522609722516568, guid: 41c9da843cc3f5740b5f44c36b1209b7, type: 2}
+  bullPart: {fileID: 1310260728669746, guid: bb882b7f32457034cae7d8908eb73208, type: 2}
 --- !u!212 &212140676276868692
 SpriteRenderer:
   m_ObjectHideFlags: 1
